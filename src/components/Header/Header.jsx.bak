@@ -1,0 +1,59 @@
+import React from "react";
+
+//svg
+import Cart from "../../assets/icons/cart.svg";
+import Favorite from "../../assets/icons/favorite.svg";
+import Fact from "../../assets/icons/facts-soft.svg";
+
+//mui
+import { makeStyles } from "@mui/styles";
+import { AppBar, Box, Typography } from "@mui/material";
+import { theme } from "../../theme";
+import { styles } from "./Header.styles.js";
+
+//hook
+const useHeaderStyles = makeStyles(styles);
+
+export const Header = ({ title }) => {
+  const classes = useHeaderStyles();
+
+  return (
+    <AppBar
+      position="sticky"
+      className={classes.root}
+      sx={{ background: theme.palette.primary.main }}
+      style={{ display: "flex", flexDirection: "row", height: 50 }}
+    >
+
+      <Box
+        className={classes.titleBox}
+        sx={{ width: "90%", height: "100%", padding: "0 10px" }}
+      >
+        <Typography
+          className={classes.title}
+          style={{ flex: 1 }}
+          // variant="h5"
+          // component="div"
+          // sx={{ flexGrow: 1 }}
+        >
+          {title}
+        </Typography>
+        <Favorite style={{ widht: 20, height: 20, cursor: "pointer" }} />
+        <Fact style={{ widht: 20, height: 20, cursor: "pointer" }} />
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "10%",
+          height: "100%",
+        }}
+      >
+        <Cart style={{ widht: 20, height: 20, cursor: "pointer" }} />
+      </Box>
+
+    </AppBar>
+  );
+};
