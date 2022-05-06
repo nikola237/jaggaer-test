@@ -5,7 +5,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "bundle.[hash].js",
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "public"),
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -18,7 +18,7 @@ module.exports = {
     alias: {
       abcd$: path.resolve(__dirname, './src/index.js')
     }
-  
+
   },
   module: {
     rules: [
